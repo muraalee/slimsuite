@@ -1,0 +1,1107 @@
+body, html {
+    font-size: 14px;
+    background: #fff;
+    padding: 0;
+    margin: 0;
+    color: #333333;
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+.ui-widget {
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+body {
+    min-width: 760px;
+}
+
+a {
+    cursor: pointer;
+}
+a.link {
+    font-style: normal;
+    text-decoration: none;
+}
+
+a.link:link {
+    color: #046ca6;
+}
+
+a.link:visited {
+    color: #046ca6;
+}
+
+a.link:hover {
+    color: #8bc53f;
+}
+
+a.link:active {
+    color: #8bc53f;
+}
+
+img {
+    border: 0
+}
+
+.clear {
+    clear: both;
+}
+
+#mainContainer {
+    min-height: 300px;
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-right: 30px;
+    background: #fff;
+}
+
+* html #mainContainer {
+    height: 300px; /*** IE doesn't support min-height, but instead it handles height as min-height so we need to hack the height ***/
+}
+
+/* Header */
+#header {
+    margin-left: 10px;
+    background: #fff;
+}
+
+/* Content AND Columns *****/
+.outer {
+    border-left: 160px solid #fff; /*** This is the width and the color for our left column ***/
+/* border-right: 100px solid #fff; */
+/*** This is the width and the color for our right column ***/
+}
+
+* html .outer {
+/*** No need for hacking IE on this layout ***/
+}
+
+.inner {
+    width: 100%;
+}
+
+* html .inner {
+/*** No need for hacking IE on this layout ***/
+}
+
+/*** div.inner is wider than its container, div.outer, and so overlaps to the right, pushing
+div.right into the proper position. IE expands div.outer instead, requiring a Tan hack to avoid
+blowing the layout apart. IE gets the original 100% width as in the Livingstone layout. It blows
+my mind that all this hacking is being caused by the mighty Gecko engine! (shakes head ruefully)
+***/
+.float-wrap {
+    float: left;
+    width: 100%;
+    margin-left: -160px; /*** Same length as .outer border-left but with negative value ***/
+}
+
+* html .float-wrap {
+/*** No need for hacking IE on this layout ***/
+}
+
+#content {
+    float: right;
+    background: #fff;
+    margin-right: -170px; /*** Same length as .outer border-left but with negative value ***/
+    width: 100%;
+}
+
+* html #content {
+    position: relative;
+}
+
+.contentWrap {
+    padding: 5px;
+}
+
+/* Left Column */
+/*** div.left is in div.float-wrap, and when div.float-wrap is neg margined to the left,
+div.left is carried over into the proper position.
+***/
+#leftbar {
+    float: left;
+    width: 145px;
+    min-height: 600px;
+    padding: 5px;
+    margin-left: 10px;
+}
+
+* html #leftbar {
+    position: relative; /*** IE needs this  ***/
+    height: 250px;
+}
+
+/*
+*//* Right Column *//*
+#rightbar {
+    float: right;
+    width: 160px;
+    padding: 5px;
+    min-height: 250px;
+    margin-right: -160px; *//** This negative margin-right value is the width of the right column + the padding, in this example 130px. ***//*
+}
+
+* html #rightbar {
+    height: 600px;
+    position: relative; *//*** IE needs this  ***//*
+}*/
+
+/* Footer */
+#footer {
+    text-align: center;
+    margin-left: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-size: 12px;
+    display: block;
+    height: 20px;
+}
+
+.thumbnail {
+    -moz-background-clip: border !important;
+    -moz-background-inline-policy: continuous !important;
+    -moz-background-origin: padding !important;
+    margin: 0 auto !important;
+    width: 200px;
+}
+
+.thumbnail img {
+    background-color: #fff;
+    border: 1px solid #a9a9a9;
+    padding: 4px;
+}
+
+.photo-frame {
+    width: 200px;
+    height: 200px;
+    float: left;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    border: 1px dashed #eee;
+    text-align: center;
+}
+
+.photo-title {
+    width: 200px;
+    padding-bottom: 2px;
+    display: block;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+.photo-controls {
+    width: 200px;
+    float: left;
+    padding-bottom: 2px;
+    padding-top: 3px;
+    text-align: center;
+    font-size: 1.0em;
+}
+
+.page-header-text {
+    text-align: left;
+    font-size: 24px;
+    color: #4F4F4F;
+    padding-right: 10px;
+    line-height: 1.4;
+    font-weight: bold;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+    margin-top: 5px;
+}
+
+.page-header-text2 {
+    text-align: left;
+    font-size: 16px;
+    color: #4F4F4F;
+    font-weight: bold;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+    margin-top: 5px;
+}
+
+#dvoverlay {
+    display: none;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    background-color: #333333;
+    opacity: .65;
+    height: 100%;
+    width: 100%;
+}
+
+#dvmodal {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 101;
+    width: 200px;
+    margin: -100px;
+    background-color: #fff;
+    border: 1px solid #222;
+    padding: 15px;
+    text-align: center;
+}
+
+/** button css */
+a.huge-button {
+    width: 320px;
+    padding: 20px 5px;
+    margin: 2px;
+    text-align: left;
+    display: inline-block;
+    font-size: 42px;
+}
+
+a.big-button {
+    width: 140px;
+    padding: 10px 2px 10px 2px;
+    margin: 2px;
+    text-align: left;
+    display: inline-block;
+    font-size: 16px;
+}
+
+a.small-button {
+    height: 20px;
+    padding: 2px 10px 2px 5px;
+    margin: 2px;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.field {
+    width: 95%;
+    overflow: auto;
+    margin: 5px 0px;
+}
+
+input.text {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 95%;
+    padding: .4em;
+}
+
+fieldset {
+    padding: 0;
+    border: 0;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 1.2em;
+    margin: .6em 0;
+}
+
+table.tab-result {
+    margin-bottom: 1em;
+}
+
+table.tab-result {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table.tab-result th {
+    border: 1px solid #eee;
+    padding: .6em 10px;
+    text-align: left;
+    font-weight: normal;
+    font-size: 1em;
+}
+
+table.tab-result td {
+    border: 1px solid #eee;
+    padding: .6em 10px;
+    text-align: left;
+    font-weight: normal;
+    font-size: .8em;
+}
+
+/* jQuery overrides */
+.ui-dialog .ui-state-error {
+    padding: .3em;
+}
+
+.ui-autocomplete-loading {
+    background: white url('../images/loader.gif') right center no-repeat;
+}
+
+.validateTips {
+    border: 1px solid transparent;
+    padding: 0.3em;
+}
+
+.small-text {
+    font-size: 12px;
+    padding-bottom: 4px;
+}
+
+#messageDiv {
+    border: 1px solid transparent;
+    padding: 0.3em;
+}
+
+#homePageAccordion h2 {
+    font-size: 36px;
+}
+
+#homePageAccordion {
+    width: 20em;
+    font-size: 15px;
+    position: relative;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#homePageAccordion .ui-icon {
+    display: none;
+}
+
+#homePageAccordion .ui-accordion-content {
+    padding-left: 10px;
+}
+
+#homePageAccordion .ui-accordion-header {
+    padding: 10px;
+}
+
+#eventAccordion {
+    width: 20em;
+    font-size: 14px;
+    position: relative;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#eventAccordion .ui-icon {
+    display: none;
+}
+
+#eventAccordion .ui-accordion-content {
+    padding-left: 2px;
+}
+
+#eventAccordion .ui-accordion-header {
+    padding: 2px;
+}
+
+/** Event sortable css */
+.eventSortable {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 400px;
+}
+
+.eventSortable li {
+    margin: 0 3px 3px 3px;
+    padding: 0.4em;
+    padding-left: 1.5em;
+    font-size: 1em;
+    height: 18px;
+}
+
+.eventSortable li span {
+    position: absolute;
+    margin-left: -1.3em;
+}
+
+/**  Drop down for Theme Switcher*/
+.img-dropdown {
+    position: absolute;
+    float: left;
+    font-family: Trebuchet MS, Verdana, sans-serif;
+    font-size: 12px;
+    background: #000;
+    color: #fff;
+    border: 1px solid #ccc;
+    -moz-border-radius-bottomleft: 6px;
+    -webkit-border-bottom-left-radius: 6px;
+    -moz-border-radius-bottomright: 6px;
+    -webkit-border-bottom-right-radius: 6px;
+    border-top: 0;
+    z-index: 999999;
+    width: 169px;
+    padding: 8px 3px 3px
+}
+
+.img-dropdown-button-default {
+    font-family: Trebuchet MS, Verdana, sans-serif;
+    font-size: 11px;
+    color: #666;
+    background: #eee url(http://jqueryui.com/themeroller/themeswitchertool/images/buttonbg.png) 50% 50% repeat-x;
+    border: 1px solid #ccc;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    text-decoration: none;
+    width: 164px;
+    display: block;
+    height: 20px;
+    outline: 0;
+    padding: 3px 3px 3px 8px
+}
+
+.img-dropdown-button-hover {
+    background: #f0f0f0;
+    cursor: pointer;
+    color: #444;
+    border-color: #bbb
+}
+
+.img-dropdown-button-active {
+    color: #aaa;
+    background: #000;
+    border: 1px solid #ccc;
+    border-bottom: 0;
+    -moz-border-radius-bottomleft: 0;
+    -webkit-border-bottom-left-radius: 0;
+    -moz-border-radius-bottomright: 0;
+    -webkit-border-bottom-right-radius: 0;
+    outline: 0
+}
+
+/* Plugin Css */
+/*styles for jquery ui daterangepicker plugin */
+.ui-daterangepickercontain {
+    position: absolute;
+    z-index: 999
+}
+
+.ui-daterangepickercontain .ui-daterangepicker {
+    float: left;
+    width: auto;
+    display: inline;
+    background-image: none !important;
+    clear: left;
+    padding: 5px !important
+}
+
+.ui-daterangepicker ul, .ui-daterangepicker .ranges, .ui-daterangepicker .range-start, .ui-daterangepicker .range-end {
+    float: left;
+    margin: 0;
+    padding: 0
+}
+
+.ui-daterangepicker .ranges {
+    width: auto;
+    position: relative;
+    margin-left: 10px;
+    padding: 5px 5px 40px 0
+}
+
+.ui-daterangepicker .range-start, .ui-daterangepicker .range-end {
+    margin-left: 5px
+}
+
+.ui-daterangepicker button.btnDone {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    clear: both;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin: 0 5px 5px 0
+}
+
+.ui-daterangepicker ul {
+    width: 17.6em;
+    background: none;
+    border: 0
+}
+
+.ui-daterangepicker li {
+    list-style: none;
+    cursor: pointer;
+    margin: 1px 0;
+    padding: 1px
+}
+
+.ui-daterangepicker li.preset_0 {
+    margin-top: 1.5em !important
+}
+
+.ui-daterangepicker .ui-widget-content a {
+    text-decoration: none !important
+}
+
+.ui-daterangepicker li a {
+    font-weight: 400;
+    display: block;
+    margin: .3em .5em
+}
+
+.ui-daterangepicker li span {
+    float: right;
+    margin: .3em .2em
+}
+
+.ui-daterangepicker .title-start, .ui-daterangepicker .title-end {
+    display: block;
+    font-size: 1em;
+    margin: 0 0 .2em;
+    padding: 0 4px 2px
+}
+
+.ui-daterangepicker .ui-datepicker-inline {
+    font-size: 1em
+}
+
+.ui-daterangepicker-arrows {
+    width: 204px;
+    position: relative;
+    padding: 2px
+}
+
+.ui-daterangepicker-arrows input.ui-rangepicker-input {
+    width: 158px;
+    height: 1.1em;
+    margin: 0 2px 0 20px;
+    padding: 2px
+}
+
+.ui-daterangepicker-arrows .ui-daterangepicker-prev, .ui-daterangepicker-arrows .ui-daterangepicker-next {
+    position: absolute;
+    top: 2px;
+    padding: 1px
+}
+
+.ui-daterangepicker-arrows .ui-daterangepicker-prev {
+    left: 2px
+}
+
+.ui-daterangepicker-arrows .ui-daterangepicker-next {
+    right: 2px
+}
+
+.ui-daterangepicker li.ui-state-hover, .ui-daterangepicker li.ui-state-active, .ui-daterangepicker-arrows .ui-daterangepicker-prev:hover, .ui-daterangepicker-arrows .ui-daterangepicker-next:hover, .ui-daterangepicker-arrows .ui-daterangepicker-prev:focus, .ui-daterangepicker-arrows .ui-daterangepicker-next:focus {
+    padding: 0
+}
+
+/* JQuery In Field UI */
+form p {
+    position: relative;
+    margin-top: 5;
+    margin-bottom: 5
+}
+
+/* JQuery WYSIWYG */
+div.wysiwyg {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 5px
+}
+
+div.wysiwyg * {
+    margin: 0;
+    padding: 0
+}
+
+div.wysiwyg ul.panel {
+    border-bottom: 1px solid #ccc;
+    float: left;
+    width: 100%;
+    padding: 0
+}
+
+div.wysiwyg ul.panel li {
+    list-style-type: none;
+    float: left;
+    background: #fff;
+    margin: 1px 2px 3px 0
+}
+
+div.wysiwyg ul.panel li.separator {
+    height: 16px;
+    border-left: 1px solid #ccc;
+    margin: 0 4px
+}
+
+div.wysiwyg ul.panel li a {
+    text-indent: -5000px;
+    opacity: 0.85;
+    filter: alpha(opacity = 85);
+    display: block;
+    width: 16px;
+    height: 16px;
+    background: url(images/jquery.wysiwyg.gif) no-repeat -64px -80px;
+    border: 0;
+    cursor: pointer;
+    padding: 1px
+}
+
+div.wysiwyg ul.panel li a:hover, div.wysiwyg ul.panel li a.active {
+    opacity: 1.00;
+    filter: alpha(opacity = 100)
+}
+
+div.wysiwyg ul.panel li a.active {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-left-color: #aaa;
+    border-top-color: #aaa;
+    padding: 0
+}
+
+div.wysiwyg ul.panel li a.bold {
+    background-position: 0 -16px
+}
+
+div.wysiwyg ul.panel li a.italic {
+    background-position: -16px -16px
+}
+
+div.wysiwyg ul.panel li a.strikeThrough {
+    background-position: -32px -16px
+}
+
+div.wysiwyg ul.panel li a.underline {
+    background-position: -48px -16px
+}
+
+div.wysiwyg ul.panel li a.justifyLeft {
+    background-position: 0 0
+}
+
+div.wysiwyg ul.panel li a.justifyCenter {
+    background-position: -16px 0
+}
+
+div.wysiwyg ul.panel li a.justifyRight {
+    background-position: -32px 0
+}
+
+div.wysiwyg ul.panel li a.justifyFull {
+    background-position: -48px 0
+}
+
+div.wysiwyg ul.panel li a.indent {
+    background-position: -64px 0
+}
+
+div.wysiwyg ul.panel li a.outdent {
+    background-position: -80px 0
+}
+
+div.wysiwyg ul.panel li a.subscript {
+    background-position: -64px -16px
+}
+
+div.wysiwyg ul.panel li a.superscript {
+    background-position: -80px -16px
+}
+
+div.wysiwyg ul.panel li a.undo {
+    background-position: 0 -64px
+}
+
+div.wysiwyg ul.panel li a.redo {
+    background-position: -16px -64px
+}
+
+div.wysiwyg ul.panel li a.insertOrderedList {
+    background-position: -32px -48px
+}
+
+div.wysiwyg ul.panel li a.insertUnorderedList {
+    background-position: -16px -48px
+}
+
+div.wysiwyg ul.panel li a.insertHorizontalRule {
+    background-position: 0 -48px
+}
+
+div.wysiwyg ul.panel li a.h1 {
+    background-position: 0 -32px
+}
+
+div.wysiwyg ul.panel li a.h2 {
+    background-position: -16px -32px
+}
+
+div.wysiwyg ul.panel li a.h3 {
+    background-position: -32px -32px
+}
+
+div.wysiwyg ul.panel li a.h4 {
+    background-position: -48px -32px
+}
+
+div.wysiwyg ul.panel li a.h5 {
+    background-position: -64px -32px
+}
+
+div.wysiwyg ul.panel li a.h6 {
+    background-position: -80px -32px
+}
+
+div.wysiwyg ul.panel li a.cut {
+    background-position: -32px -64px
+}
+
+div.wysiwyg ul.panel li a.copy {
+    background-position: -48px -64px
+}
+
+div.wysiwyg ul.panel li a.paste {
+    background-position: -64px -64px
+}
+
+div.wysiwyg ul.panel li a.increaseFontSize {
+    background-position: -16px -80px
+}
+
+div.wysiwyg ul.panel li a.decreaseFontSize {
+    background-position: -32px -80px
+}
+
+div.wysiwyg ul.panel li a.createLink {
+    background-position: -80px -48px
+}
+
+div.wysiwyg ul.panel li a.insertImage {
+    background-position: -80px -80px
+}
+
+div.wysiwyg ul.panel li a.html {
+    background-position: -47px -46px
+}
+
+div.wysiwyg ul.panel li a.removeFormat {
+    background-position: -80px -63px
+}
+
+div.wysiwyg ul.panel li a.empty {
+    background-position: -64px -80px
+}
+
+div.wysiwyg iframe {
+    border: 0;
+    clear: left;
+    margin: 4px 0 0 1px
+}
+
+/** jWizard */
+.jw-title {
+    padding: 0 1em
+}
+
+.jw-content {
+    font-size: 12px;
+    height: 300px;
+    padding: .5em 0
+}
+
+.jw-menu-wrap {
+    width: 10em;
+    margin-right: -10em;
+    float: left
+}
+
+.jw-menu {
+    margin: 0 .5em
+}
+
+.jw-menu ol {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+.jw-menu li {
+    margin-bottom: .25em;
+    padding: .25em .5em
+}
+
+.jw-hasmenu .jw-steps-wrap {
+    margin-left: 10em
+}
+
+.jw-steps-wrap {
+    overflow: auto;
+    height: 280px;
+    padding: .5em
+}
+
+.jw-content p {
+    margin-top: 0
+}
+
+.jw-footer {
+    padding: 1em
+}
+
+.jw-counter {
+    float: left;
+    padding: .2em
+}
+
+.jw-counter.jw-left .jw-counter-text {
+    float: left;
+    padding: .4em
+}
+
+.jw-counter.jw-left .jw-counter-progressbar {
+    display: block;
+    width: 6em;
+    float: right
+}
+
+.jw-counter.jw-center .jw-counter-text {
+    float: left;
+    width: 10em;
+    text-align: center;
+    padding: .4em
+}
+
+.jw-counter.jw-center .jw-counter-progressbar {
+    display: block
+}
+
+.jw-counter.jw-right .jw-counter-text {
+    float: right;
+    padding: .4em
+}
+
+.jw-counter.jw-right .jw-counter-progressbar {
+    display: block;
+    width: 6em;
+    float: left
+}
+
+.jw-buttons button {
+    margin-left: 1em;
+    padding: .5em 1em
+}
+
+.jw-counter.jw-right, .jw-buttons {
+    text-align: right
+}
+
+/* ColorBox Core Style */
+#colorbox, #cboxOverlay, #cboxWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+#cboxOverlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+#cboxMiddleLeft, #cboxBottomLeft {
+    clear: left;
+}
+
+#cboxContent {
+    position: relative;
+    overflow: hidden;
+}
+
+#cboxLoadedContent {
+    overflow: auto;
+}
+
+#cboxLoadedContent iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+#cboxTitle {
+    margin: 0;
+}
+
+#cboxLoadingOverlay, #cboxLoadingGraphic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow {
+    cursor: pointer;
+}
+
+/* Example User Style */
+#cboxOverlay {
+    background: url(images/overlay.png) 0 0 repeat;
+}
+
+#colorbox {
+}
+
+#cboxTopLeft {
+    width: 21px;
+    height: 21px;
+    background: url(images/controls.png) -100px 0 no-repeat;
+}
+
+#cboxTopRight {
+    width: 21px;
+    height: 21px;
+    background: url(images/controls.png) -129px 0 no-repeat;
+}
+
+#cboxBottomLeft {
+    width: 21px;
+    height: 21px;
+    background: url(images/controls.png) -100px -29px no-repeat;
+}
+
+#cboxBottomRight {
+    width: 21px;
+    height: 21px;
+    background: url(images/controls.png) -129px -29px no-repeat;
+}
+
+#cboxMiddleLeft {
+    width: 21px;
+    background: url(images/controls.png) left top repeat-y;
+}
+
+#cboxMiddleRight {
+    width: 21px;
+    background: url(images/controls.png) right top repeat-y;
+}
+
+#cboxTopCenter {
+    height: 21px;
+    background: url(images/border.png) 0 0 repeat-x;
+}
+
+#cboxBottomCenter {
+    height: 21px;
+    background: url(images/border.png) 0 -29px repeat-x;
+}
+
+#cboxContent {
+    background: #fff;
+}
+
+#cboxLoadedContent {
+    margin-bottom: 50px;
+}
+
+#cboxTitle {
+    position: absolute;
+    bottom: 4px;
+    left: 0px;
+    text-align: center;
+    width: 100%;
+    color: #949494;
+}
+
+#cboxCurrent {
+    position: absolute;
+    bottom: 4px;
+    left: 58px;
+    color: #949494;
+}
+
+#cboxSlideshow {
+    position: absolute;
+    bottom: 4px;
+    right: 30px;
+    color: #0092ef;
+}
+
+#cboxPrevious {
+    position: absolute;
+    bottom: 0;
+    left: 0px;
+    background: url(images/controls.png) -75px 0px no-repeat;
+    width: 25px;
+    height: 25px;
+    text-indent: -9999px;
+}
+
+#cboxPrevious.hover {
+    background-position: -75px -25px;
+}
+
+#cboxNext {
+    position: absolute;
+    bottom: 0;
+    left: 27px;
+    background: url(images/controls.png) -50px 0px no-repeat;
+    width: 25px;
+    height: 25px;
+    text-indent: -9999px;
+}
+
+#cboxNext.hover {
+    background-position: -50px -25px;
+}
+
+#cboxLoadingOverlay {
+    background: url(images/loading_background.png) center center no-repeat;
+}
+
+#cboxLoadingGraphic {
+    background: url(images/loading.gif) center center no-repeat;
+}
+
+#cboxClose {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: url(images/controls.png) -25px 0px no-repeat;
+    width: 25px;
+    height: 25px;
+    text-indent: -9999px;
+}
+
+#cboxClose.hover {
+    background-position: -25px -25px;
+}
+
+/* IE6 fixes */
+.cboxIE #cboxTopLeft {
+    background: transparent;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src =/images/internet_explorer/borderTopLeft.png, sizingMethod = 'scale');
+}
+
+.cboxIE #cboxTopCenter {
+    background: transparent;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src =/images/internet_explorer/borderTopCenter.png, sizingMethod = 'scale');
+}
+
+.cboxIE #cboxTopRight {
+    background: transparent;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src =/images/internet_explorer/borderTopRight.png, sizingMethod = 'scale');
+}
+
+.cboxIE #cboxBottomLeft {
+    background: transparent;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src =/images/internet_explorer/borderBottomLeft.png, sizingMethod = 'scale');
+}
+
+.cboxIE #cboxBottomCenter {
+    background: transparent;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src =/images/internet_explorer/borderBottomCenter.png, sizingMethod = 'scale');
+}
+
+.cboxIE #cboxBottomRight {
+    background: transparent;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src =/images/internet_explorer/borderBottomRight.png, sizingMethod = 'scale');
+}
+
+.cboxIE #cboxMiddleLeft {
+    background: transparent;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src =/images/internet_explorer/borderMiddleLeft.png, sizingMethod = 'scale');
+}
+
+.cboxIE #cboxMiddleRight {
+    background: transparent;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src =/images/internet_explorer/borderMiddleRight.png, sizingMethod = 'scale');
+}

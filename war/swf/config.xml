@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+  <!-- Verification Codes -->
+    <verification>3ac66629eaf1</verification>
+    <verification>9c302e978e62</verification>
+
+  <!-- Image Settings -->
+    <maxwidth>1600</maxwidth>
+    <maxheight>1200</maxheight>
+    <minwidth>0</minwidth>
+    <minheight>0</minheight>
+    <compression>10</compression>
+
+  <!-- UI Settings -->
+    <dimensioncheck>yes</dimensioncheck> <!-- other: no -->
+    <thumbnail>yes</thumbnail>
+    <filename>yes</filename>
+    <choosetext>Choose Photo</choosetext>
+    <bgcolor>eee0c0</bgcolor>
+    <bgimage>/swf/gold.png</bgimage>
+    <filetextcolor>000000</filetextcolor>
+    <buttonbgcolor>transparent</buttonbgcolor>
+    <buttonbgimage>/swf/buttonbg.png</buttonbgimage>
+    <buttontextcolor>323232</buttontextcolor>
+  
+  <!-- Upload settings -->
+    <maximages>12</maximages> <!-- 0 = infinite -->
+    <uploadmethod>both</uploadmethod> <!-- other: server, both -->
+    <reportstatus>yes</reportstatus> <!-- reports: busy, ready, maxreached -->
+    <scripturl>/photoUpload?email=${email}</scripturl>
+    <redirect></redirect>
+    <idvariable>id</idvariable>
+    <idvalue>file</idvalue>
+    <getvariable>getvar</getvariable>
+    <getvalue>getvar</getvalue>
+    <getvariable>description</getvariable>
+    <getvalue>Slices of Lime in a Cuba Libre Cocktail</getvalue>
+</configuration>
+
