@@ -8,7 +8,7 @@ import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
 public class EmailService {
-    static String FROM_EMAIL_ADDRESS = "muraalee@gmail.com";
+    static String FROM_EMAIL_ADDRESS = "xys@gmail.com";
     Properties props = new Properties();
     Session session = Session.getDefaultInstance(props, null);
 
